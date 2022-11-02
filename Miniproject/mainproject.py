@@ -1,6 +1,6 @@
-import email
 from typing import MutableSequence
 import hashlib
+import sys
 
 def read_prod_file():
     with open("products.txt", "r") as products:
@@ -24,14 +24,6 @@ def write_cour_file():
     with open("couriers.txt", "a+") as couriers:
         couriers.write(input("Who would you like to add? "))
         print(read_cour_file)
-            
-
-
-# class Menu:
-#     def __init__(self):
-
-
-import sys
 
 orders = []
 
@@ -71,11 +63,17 @@ def product_menu():
             print(product_list)
             for product in range(len(product_list)):
                 print(f'-{product}- {product_list[product]}')
-            to_delete = int(input("Please choose the number of the product you'd like to delete: "))
-            print(f"You have selected {product_list[to_delete]}")
-            product_list.pop(to_delete)
-            print(product_list)
-            product_option = int(input("Would you like to do anything else: "))
+            try:
+                to_delete = int(input("Please choose the number of the product you'd like to delete: "))
+                print(f"You have selected {product_list[to_delete]}")
+            
+            except ValueError:
+                print("You can only input integers (whole numbers) Please try again")
+
+            else:
+                product_list.pop(to_delete)
+                print(product_list)
+                product_option = int(input("Would you like to do anything else: "))
 
         elif product_option == 4:
             for i in range(len(product_list)):
