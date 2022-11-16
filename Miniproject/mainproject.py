@@ -61,6 +61,7 @@ def delete_product():
     enumerate_product()
 
 def update_product():
+    enumerate_product()
     index = int(input("Please enter the index of the product you'd like to ammend: "))
     item_to_update = product_list[index]
     keys = ["Product", "Price"]
@@ -97,6 +98,7 @@ def delete_order():
     enumerate_order()
 
 def update_order():
+    enumerate_order
     index = int(input("Please enter the index of the order you'd like to ammend: "))
     item_to_update = order_list[index]
     keys = ["customer_name", "customer_address", "customer_phone_number", "courier", "Status"]
@@ -114,8 +116,10 @@ def update_order():
                 item_to_update["courier"] = input_by_user
 
 def update_order_status():
-    enumerate_order
-    pass
+    enumerate_order()
+    order_list[int(input("Select the number of the order you want to update: "))]["Status"] = input("New order status: ")
+
+
 
 def enumerate_courier():
     for i,x in enumerate(order_list):
@@ -136,6 +140,7 @@ def delete_courier():
     enumerate_courier()
 
 def update_courier():
+    enumerate_courier()
     index = int(input("Please enter the index of the courier you'd like to ammend: "))
     courier_to_update = product_list[index]
     keys = ["Courier", "Number"]
@@ -214,27 +219,27 @@ def order_menu():
 
         elif order_option == 1:
             enumerate_product()
-            time.sleep(5)
+            time.sleep(3)
             order_menu()
 
         elif order_option == 2:
             add_order()
-            time.sleep(2)
+            time.sleep(3)
             order_menu()
 
         elif order_option == 3:
             update_order()
-            time.sleep(5)
+            time.sleep(3)
             order_menu()
 
         elif order_option == 4:
             delete_order()
-            time.sleep(5)
+            time.sleep(3)
             order_menu()
 
         elif order_option == 5:
             update_order_status()
-            time.sleep(5)
+            time.sleep(3)
             order_menu()
 
         else:
