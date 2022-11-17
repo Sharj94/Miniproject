@@ -56,7 +56,14 @@ def add_product():
     product_list.append(new_product)
 
 def delete_product():
-    del product_list[int(input("Please enter the number of the item you'd like to delete: "))]
+    try:
+        del product_list[int(input("Please enter the number of the item you'd like to delete: "))]
+    except ValueError as VE:
+        print("You can only input an integer!")
+    except IndexError as IE:
+        print("Please ensure that the index is inn range of th options.")
+
+
 
 def update_product():
     try:
@@ -102,24 +109,35 @@ def add_order():
     print("Order update is complete!")
 
 def delete_order():
-    del order_list[int(input("Please enter the number of the order you'd like to delete: "))]
+    try:
+        del order_list[int(input("Please enter the number of the order you'd like to delete: "))]
+    except ValueError as VE:
+        print("You can only input an integer!")
+    except IndexError as IE:
+        print("Please ensure that the index is inn range of th options.")
 
 def update_order():
-    index = int(input("Please enter the index of the order you'd like to ammend: "))
-    item_to_update = order_list[index]
-    keys = ["customer_name", "customer_address", "customer_phone_number", "courier", "Status"]
-    for key in keys: 
-        input_by_user = input(f"new {key}: ")
-        if input_by_user != "":
-            if key == "customer_name":
-                item_to_update["customer_name"] = input_by_user
-            elif key == "customer_address":
-                item_to_update["customer_address"] = input_by_user
-            elif key == "customer_phonne_number":
-                item_to_update["customer_phone_number"] = input_by_user
-            elif key == "courier":
-                enumerate_courier
-                item_to_update["courier"] = input_by_user
+    try:
+        index = int(input("Please enter the index of the order you'd like to ammend: "))
+    except ValueError as VE:
+        print("You can only input an integer!")
+    except IndexError as IE:
+        print("Please ensure that the index is inn range of th options.")
+    else:
+        item_to_update = order_list[index]
+        keys = ["customer_name", "customer_address", "customer_phone_number", "courier", "Status"]
+        for key in keys: 
+            input_by_user = input(f"new {key}: ")
+            if input_by_user != "":
+                if key == "customer_name":
+                    item_to_update["customer_name"] = input_by_user
+                elif key == "customer_address":
+                    item_to_update["customer_address"] = input_by_user
+                elif key == "customer_phonne_number":
+                    item_to_update["customer_phone_number"] = input_by_user
+                elif key == "courier":
+                    enumerate_courier
+                    item_to_update["courier"] = input_by_user
 
 def update_order_status():
     order_statuses = ["Preparing...", "Dispatched", "Delivered", "Cancelled"]
@@ -143,19 +161,30 @@ def add_courier():
     courier_list.append(new_courier)
 
 def delete_courier():
-    del courier_list[int(input("Please enter the number of the courier you'd like to delete: "))]
-
+    try:
+        del courier_list[int(input("Please enter the number of the courier you'd like to delete: "))]
+    except ValueError as VE:
+        print("You can only input an integer!")
+    except IndexError as IE:
+        print("Please ensure that the index is inn range of th options.")
+        
 def update_courier():
-    index = int(input("Please enter the index of the courier you'd like to ammend: "))
-    courier_to_update = product_list[index]
-    keys = ["Courier", "Number"]
-    for key in keys: 
-        input_by_user = input(f"new {key}: ")
-        if input_by_user != "":
-            if key == "Courier":
-                courier_to_update["Courier"] = input_by_user
-            elif key == "Number":
-                courier_to_update["Number"] = int(input_by_user)
+    try:
+        index = int(input("Please enter the index of the courier you'd like to ammend: "))
+    except ValueError as VE:
+        print("You can only input an integer!")
+    except IndexError as IE:
+        print("Please ensure that the index is inn range of th options.")
+    else:
+        courier_to_update = product_list[index]
+        keys = ["Courier", "Number"]
+        for key in keys: 
+            input_by_user = input(f"new {key}: ")
+            if input_by_user != "":
+                if key == "Courier":
+                    courier_to_update["Courier"] = input_by_user
+                elif key == "Number":
+                    courier_to_update["Number"] = int(input_by_user)
 
 def product_menu():
     print( """
