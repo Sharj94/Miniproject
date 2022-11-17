@@ -57,13 +57,6 @@ def enumerate_product():
         print(f"Number: {i}, {x}")
 
 
-def add_product():
-    product = input("New product name: ")
-    price = float(input("New product price: "))
-    new_product = {"Product": product, "Price": price}
-    product_list.append(new_product)
-
-
 def delete_product():
     try:
         del product_list[
