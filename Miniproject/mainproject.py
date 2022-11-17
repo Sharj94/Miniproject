@@ -56,26 +56,30 @@ def add_product():
     product_list.append(new_product)
 
 def delete_product():
-    enumerate_product()
     del product_list[int(input("Please enter the number of the item you'd like to delete: "))]
-    enumerate_product()
 
 def update_product():
-    enumerate_product()
-    index = int(input("Please enter the index of the product you'd like to ammend: "))
-    item_to_update = product_list[index]
-    keys = ["Product", "Price"]
-    for key in keys: 
-        input_by_user = input(f"New {key}: ")
-        if input_by_user != "":
-            if key == "Product":
-                item_to_update["Product"] = input_by_user
-            elif key == "Price":
-                item_to_update["Price"] = float(input_by_user)
+    try:
+        index = int(input("Please enter the index of the product you'd like to ammend: "))
+    except ValueError as VE:
+        print("You can only input an integer!")
+    except IndexError as IE:
+        print("Please ensure that the index is inn range of th options.")
+    else:
+        item_to_update = product_list[index]
+        keys = ["Product", "Price"]
+        for key in keys: 
+            input_by_user = input(f"New {key}: ")
+            if input_by_user != "":
+                if key == "Product":
+                    item_to_update["Product"] = input_by_user
+                elif key == "Price":
+                    item_to_update["Price"] = float(input_by_user)
+                else:
+                    print("Please try again!")
+                    continue
             else:
-                print("Please try again!")
-                continue
-        print(f"You have updated {'Product'} to {'Price'}")
+                menu()
 
 def enumerate_order():
     for i,x in enumerate(order_list):
@@ -84,7 +88,7 @@ def enumerate_order():
 def add_order():
     c_name = input("Please enter your name: ")
     c_address = input("Please enter your address: ")
-    c_phone_number = input("Please enter your phone number: ")
+    c_phone_number = int(input("Please enter your phone number: "))
     enumerate_courier()
     courier = input("Please enter the name of a courier for the delivery: ")
     new_order = {
@@ -95,14 +99,12 @@ def add_order():
     "Status": "Preparing..."
     }
     order_list.append(new_order)
+    print("Order update is complete!")
 
 def delete_order():
-    enumerate_order()
     del order_list[int(input("Please enter the number of the order you'd like to delete: "))]
-    enumerate_order()
 
 def update_order():
-    enumerate_order
     index = int(input("Please enter the index of the order you'd like to ammend: "))
     item_to_update = order_list[index]
     keys = ["customer_name", "customer_address", "customer_phone_number", "courier", "Status"]
@@ -121,7 +123,6 @@ def update_order():
 
 def update_order_status():
     order_statuses = ["Preparing...", "Dispatched", "Delivered", "Cancelled"]
-    enumerate_order()
     updatedstatus = int(input("Select the order you'd like to update: "))
     for i,x in enumerate(order_statuses):
         print(f"{i}, {x}")
@@ -142,12 +143,9 @@ def add_courier():
     courier_list.append(new_courier)
 
 def delete_courier():
-    enumerate_courier()
     del courier_list[int(input("Please enter the number of the courier you'd like to delete: "))]
-    enumerate_courier()
 
 def update_courier():
-    enumerate_courier()
     index = int(input("Please enter the index of the courier you'd like to ammend: "))
     courier_to_update = product_list[index]
     keys = ["Courier", "Number"]
@@ -174,7 +172,7 @@ def product_menu():
 
     while True:
 
-        product_option = input("Please select an option: ")
+        product_option = int(input("Please select an option: "))
 
         if product_option == 0:
             menu()
@@ -186,16 +184,21 @@ def product_menu():
 
         elif product_option == 2:
             add_product()
+            enumerate_product()
             time.sleep(3)
             product_menu()
 
         elif product_option == 3:
+            enumerate_product()
             delete_product()
+            enumerate_product()
             time.sleep(3)
             product_menu()
 
         elif product_option == 4:
+            enumerate_product()
             update_product()
+            enumerate_product()
             time.sleep(3)
             product_menu()
 
@@ -220,13 +223,13 @@ def order_menu():
 
     while True:
 
-        order_option = input("Please select an option: ")
+        order_option = int(input("Please select an option: "))
     
         if order_option == 0:
             menu()
 
         elif order_option == 1:
-            enumerate_product()
+            enumerate_order()
             time.sleep(3)
             order_menu()
 
@@ -236,16 +239,21 @@ def order_menu():
             order_menu()
 
         elif order_option == 3:
+            enumerate_order()
             update_order()
+            enumerate_order()
             time.sleep(3)
             order_menu()
 
         elif order_option == 4:
+            enumerate_order()
             delete_order()
+            enumerate_order()
             time.sleep(3)
             order_menu()
 
         elif order_option == 5:
+            enumerate_order()
             update_order_status()
             time.sleep(3)
             order_menu()
@@ -271,7 +279,7 @@ def courier_menu():
 
     while True:
 
-        courier_option = input("Please slect your option: ")
+        courier_option = int(input("Please slect your option: "))
 
         if courier_option == 0:
             menu()
@@ -287,12 +295,15 @@ def courier_menu():
             courier_menu()
 
         if courier_option == 3:
+            enumerate_courier()
             delete_courier()
             time.sleep(3)
             courier_menu()
 
         if courier_option == 4:
+            enumerate_courier()
             update_courier()
+            enumerate_courier()
             time.sleep(3)
             courier_menu()
 
@@ -313,7 +324,7 @@ def menu():
     -3- Courier menu
     
     """ )
-    main_option = input("Choice: ")
+    main_option = int(input("Choice: "))
 
     while True:
         if main_option == 0:
