@@ -61,9 +61,7 @@ def delete_product():
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
-        print("Please ensure that the index is inn range of th options.")
-
-
+        print("Please ensure that the index is in range of th options.")
 
 def update_product():
     try:
@@ -167,7 +165,7 @@ def delete_courier():
         print("You can only input an integer!")
     except IndexError as IE:
         print("Please ensure that the index is inn range of th options.")
-        
+
 def update_courier():
     try:
         index = int(input("Please enter the index of the courier you'd like to ammend: "))
