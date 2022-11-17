@@ -2,18 +2,20 @@ import time
 import csv
 import sys
 
+
 def load_list_file(file_name):
     list = []
-    with open(file_name, "r") as file: 
+    with open(file_name, "r") as file:
         csv_file = csv.DictReader(file)
-        for row in csv_file: 
+        for row in csv_file:
             list.append(row)
         return list
 
-def save_to_file(file_name,list):
+
+def save_to_file(file_name, list):
     if file_name == "products.csv":
-        headers = ["Product","Price"]
-        with open(file_name, 'w',newline='') as f:  
+        headers = ["Product", "Price"]
+        with open(file_name, "w", newline="") as f:
             w = csv.DictWriter(f, headers, quoting=csv.QUOTE_MINIMAL)
             w.writeheader()
             for x in list:
@@ -21,8 +23,14 @@ def save_to_file(file_name,list):
         print("Products list save complete!")
 
     elif file_name == "orders.csv":
-        headers = ["customer_name","customer_address","customer_phone_number","courier","Status"]
-        with open(file_name, 'w',newline='') as f:  
+        headers = [
+            "customer_name",
+            "customer_address",
+            "customer_phone_number",
+            "courier",
+            "Status",
+        ]
+        with open(file_name, "w", newline="") as f:
             w = csv.DictWriter(f, headers, quoting=csv.QUOTE_MINIMAL)
             w.writeheader()
             for x in list:
@@ -30,42 +38,48 @@ def save_to_file(file_name,list):
         print("Orders list save complete!")
 
     elif file_name == "couriers.csv":
-        headers = ["Courier","Number"]
-        with open(file_name, 'w',newline='') as f:  
+        headers = ["Courier", "Number"]
+        with open(file_name, "w", newline="") as f:
             w = csv.DictWriter(f, headers, quoting=csv.QUOTE_MINIMAL)
             w.writeheader()
             for x in list:
                 w.writerow(x)
         print("Couriers list save complete!")
 
+
 product_list = load_list_file("products.csv")
 order_list = load_list_file("orders.csv")
 courier_list = load_list_file("couriers.csv")
 
+
 def enumerate_product():
-    for i,x in enumerate(product_list):
+    for i, x in enumerate(product_list):
         print(f"Number: {i}, {x}")
+
 
 def add_product():
     Product = input("New product name: ")
     Price = float(input("New product price: "))
-    new_product = {
-        "Product": Product,
-        "Price": Price 
-    }
+    new_product = {"Product": Product, "Price": Price}
     product_list.append(new_product)
+
 
 def delete_product():
     try:
-        del product_list[int(input("Please enter the number of the item you'd like to delete: "))]
+        del product_list[
+            int(input("Please enter the number of the item you'd like to delete: "))
+        ]
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
         print("Please ensure that the index is in range of th options.")
 
+
 def update_product():
     try:
-        index = int(input("Please enter the index of the product you'd like to ammend: "))
+        index = int(
+            input("Please enter the index of the product you'd like to ammend: ")
+        )
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
@@ -73,7 +87,7 @@ def update_product():
     else:
         item_to_update = product_list[index]
         keys = ["Product", "Price"]
-        for key in keys: 
+        for key in keys:
             input_by_user = input(f"New {key}: ")
             if input_by_user != "":
                 if key == "Product":
@@ -86,9 +100,11 @@ def update_product():
             else:
                 menu()
 
+
 def enumerate_order():
-    for i,x in enumerate(order_list):
+    for i, x in enumerate(order_list):
         print(f"Order number: {i}, {x}")
+
 
 def add_order():
     c_name = input("Please enter your name: ")
@@ -97,22 +113,26 @@ def add_order():
     enumerate_courier()
     courier = input("Please enter the name of a courier for the delivery: ")
     new_order = {
-    "customer_name": c_name,
-    "customer_address": c_address,
-    "customer_phone_number": c_phone_number,
-    "courier": courier,
-    "Status": "Preparing..."
+        "customer_name": c_name,
+        "customer_address": c_address,
+        "customer_phone_number": c_phone_number,
+        "courier": courier,
+        "Status": "Preparing...",
     }
     order_list.append(new_order)
     print("Order update is complete!")
 
+
 def delete_order():
     try:
-        del order_list[int(input("Please enter the number of the order you'd like to delete: "))]
+        del order_list[
+            int(input("Please enter the number of the order you'd like to delete: "))
+        ]
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
         print("Please ensure that the index is inn range of th options.")
+
 
 def update_order():
     try:
@@ -123,8 +143,14 @@ def update_order():
         print("Please ensure that the index is inn range of th options.")
     else:
         item_to_update = order_list[index]
-        keys = ["customer_name", "customer_address", "customer_phone_number", "courier", "Status"]
-        for key in keys: 
+        keys = [
+            "customer_name",
+            "customer_address",
+            "customer_phone_number",
+            "courier",
+            "Status",
+        ]
+        for key in keys:
             input_by_user = input(f"new {key}: ")
             if input_by_user != "":
                 if key == "customer_name":
@@ -137,38 +163,44 @@ def update_order():
                     enumerate_courier
                     item_to_update["courier"] = input_by_user
 
+
 def update_order_status():
     order_statuses = ["Preparing...", "Dispatched", "Delivered", "Cancelled"]
     updatedstatus = int(input("Select the order you'd like to update: "))
-    for i,x in enumerate(order_statuses):
+    for i, x in enumerate(order_statuses):
         print(f"{i}, {x}")
     new_status = int(input("Please enter the index of the new status: "))
     order_list[updatedstatus]["Status"] = order_statuses[new_status]
 
+
 def enumerate_courier():
-    for i,x in enumerate(courier_list):
+    for i, x in enumerate(courier_list):
         print(f"Index: {i}, {x}")
+
 
 def add_courier():
     Courier = input("New courier name: ")
     Number = int(input("New courier number: "))
-    new_courier = {
-        "Courier": Courier,
-        "Number": Number 
-    }
+    new_courier = {"Courier": Courier, "Number": Number}
     courier_list.append(new_courier)
+
 
 def delete_courier():
     try:
-        del courier_list[int(input("Please enter the number of the courier you'd like to delete: "))]
+        del courier_list[
+            int(input("Please enter the number of the courier you'd like to delete: "))
+        ]
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
         print("Please ensure that the index is inn range of th options.")
 
+
 def update_courier():
     try:
-        index = int(input("Please enter the index of the courier you'd like to ammend: "))
+        index = int(
+            input("Please enter the index of the courier you'd like to ammend: ")
+        )
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
@@ -176,7 +208,7 @@ def update_courier():
     else:
         courier_to_update = product_list[index]
         keys = ["Courier", "Number"]
-        for key in keys: 
+        for key in keys:
             input_by_user = input(f"new {key}: ")
             if input_by_user != "":
                 if key == "Courier":
@@ -184,8 +216,10 @@ def update_courier():
                 elif key == "Number":
                     courier_to_update["Number"] = int(input_by_user)
 
+
 def product_menu():
-    print( """
+    print(
+        """
     Product menu
     -0- Back to Main Menu
     -1- Show Products
@@ -195,7 +229,8 @@ def product_menu():
 
     What would you like to do?
     
-    """ )
+    """
+    )
 
     while True:
 
@@ -230,12 +265,16 @@ def product_menu():
             product_menu()
 
         else:
-            print("""Uh-oh Invalid option
-    Please try again!""")  
+            print(
+                """Uh-oh Invalid option
+    Please try again!"""
+            )
             product_menu()
 
+
 def order_menu():
-    print( """
+    print(
+        """
     Order menu
     -0- Back to Main Menu
     -1- Show orders
@@ -246,12 +285,13 @@ def order_menu():
 
     What would you like to do?
     
-    """ )
+    """
+    )
 
     while True:
 
         order_option = int(input("Please select an option: "))
-    
+
         if order_option == 0:
             menu()
 
@@ -286,13 +326,16 @@ def order_menu():
             order_menu()
 
         else:
-            print("""Uh-oh Invalid option
-    Please try again!""")  
+            print(
+                """Uh-oh Invalid option
+    Please try again!"""
+            )
             order_menu()
 
 
 def courier_menu():
-    print( """
+    print(
+        """
     Order menu
     -0- Back to Main Menu
     -1- Show couriers
@@ -302,7 +345,8 @@ def courier_menu():
 
     What would you like to do?
     
-    """ )
+    """
+    )
 
     while True:
 
@@ -315,7 +359,7 @@ def courier_menu():
             enumerate_courier()
             time.sleep(3)
             courier_menu()
-        
+
         if courier_option == 2:
             add_courier()
             time.sleep(3)
@@ -335,13 +379,16 @@ def courier_menu():
             courier_menu()
 
         else:
-            print("""Uh-oh Invalid option
-    Please try again!""")  
+            print(
+                """Uh-oh Invalid option
+    Please try again!"""
+            )
             order_menu()
 
 
 def menu():
-    print( """
+    print(
+        """
     Welcome to Sajid's Delivery Service!
     
     Please choose one of the following options:
@@ -350,7 +397,8 @@ def menu():
     -2- Order menu
     -3- Courier menu
     
-    """ )
+    """
+    )
     main_option = int(input("Choice: "))
 
     while True:
@@ -365,7 +413,7 @@ def menu():
 
         elif main_option == 1:
             product_menu()
-    
+
         elif main_option == 2:
             order_menu()
 
@@ -373,8 +421,11 @@ def menu():
             courier_menu()
 
         else:
-            print("""Uh oh, invalid option
-            Please choose one of the following:""")
+            print(
+                """Uh oh, invalid option
+            Please choose one of the following:"""
+            )
             menu()
+
 
 menu()
