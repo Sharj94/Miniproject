@@ -66,12 +66,16 @@ def update_product():
     item_to_update = product_list[index]
     keys = ["Product", "Price"]
     for key in keys: 
-        input_by_user = input(f"new {key}: ")
+        input_by_user = input(f"New {key}: ")
         if input_by_user != "":
-            if key == "name":
-                item_to_update["name"] = input_by_user
-            elif key == "price":
-                item_to_update["price"] = input_by_user
+            if key == "Product":
+                item_to_update["Product"] = input_by_user
+            elif key == "Price":
+                item_to_update["Price"] = float(input_by_user)
+            else:
+                print("Please try again!")
+                continue
+        print(f"You have updated {'Product'} to {'Price'}")
 
 def enumerate_order():
     for i,x in enumerate(order_list):
@@ -116,18 +120,21 @@ def update_order():
                 item_to_update["courier"] = input_by_user
 
 def update_order_status():
+    order_statuses = ["Preparing...", "Dispatched", "Delivered", "Cancelled"]
     enumerate_order()
-    order_list[int(input("Select the number of the order you want to update: "))]["Status"] = input("New order status: ")
-
-
+    updatedstatus = int(input("Select the order you'd like to update: "))
+    for i,x in enumerate(order_statuses):
+        print(f"{i}, {x}")
+    new_status = int(input("Please enter the index of the new status: "))
+    order_list[updatedstatus]["Status"] = order_statuses[new_status]
 
 def enumerate_courier():
-    for i,x in enumerate(order_list):
-        print(f"Courier: {i}, {x}")
+    for i,x in enumerate(courier_list):
+        print(f"Index: {i}, {x}")
 
 def add_courier():
     Courier = input("New courier name: ")
-    Number = float(input("New courier number: "))
+    Number = int(input("New courier number: "))
     new_courier = {
         "Courier": Courier,
         "Number": Number 
@@ -150,7 +157,7 @@ def update_courier():
             if key == "Courier":
                 courier_to_update["Courier"] = input_by_user
             elif key == "Number":
-                courier_to_update["Number"] = input_by_user
+                courier_to_update["Number"] = int(input_by_user)
 
 def product_menu():
     print( """
@@ -167,7 +174,7 @@ def product_menu():
 
     while True:
 
-        product_option = int(input("Please select an option: "))
+        product_option = input("Please select an option: ")
 
         if product_option == 0:
             menu()
@@ -205,6 +212,7 @@ def order_menu():
     -2- Add new order
     -3- Change order
     -4- Delete order
+    -5- Update order status
 
     What would you like to do?
     
@@ -212,7 +220,7 @@ def order_menu():
 
     while True:
 
-        order_option = int(input("Please select an option: "))
+        order_option = input("Please select an option: ")
     
         if order_option == 0:
             menu()
@@ -263,30 +271,35 @@ def courier_menu():
 
     while True:
 
-        courier_option = int(input("Please slect your option: "))
+        courier_option = input("Please slect your option: ")
 
         if courier_option == 0:
             menu()
 
         if courier_option == 1:
-            enumerate_courier
+            enumerate_courier()
             time.sleep(3)
             courier_menu()
         
         if courier_option == 2:
-            add_courier
+            add_courier()
             time.sleep(3)
             courier_menu()
 
         if courier_option == 3:
-            delete_courier
+            delete_courier()
             time.sleep(3)
             courier_menu()
 
         if courier_option == 4:
-            update_courier
+            update_courier()
             time.sleep(3)
             courier_menu()
+
+        else:
+            print("""Uh-oh Invalid option
+    Please try again!""")  
+            order_menu()
 
 
 def menu():
@@ -300,7 +313,7 @@ def menu():
     -3- Courier menu
     
     """ )
-    main_option = int(input("Choice: "))
+    main_option = input("Choice: ")
 
     while True:
         if main_option == 0:
