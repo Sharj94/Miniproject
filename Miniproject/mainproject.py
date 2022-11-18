@@ -2,6 +2,8 @@ import time
 import csv
 import sys
 
+from product import enumerate_product,add_product,update_product,delete_product
+
 
 def load_list_file(file_name):
     list = []
@@ -50,48 +52,6 @@ def save_to_file(file_name, list):
 product_list = load_list_file("products.csv")
 order_list = load_list_file("orders.csv")
 courier_list = load_list_file("couriers.csv")
-
-
-def enumerate_product():
-    for i, x in enumerate(product_list):
-        print(f"Number: {i}, {x}")
-
-
-def delete_product():
-    try:
-        del product_list[
-            int(input("Please enter the number of the item you'd like to delete: "))
-        ]
-    except ValueError as VE:
-        print("You can only input an integer!")
-    except IndexError as IE:
-        print("Please ensure that the index is in range of th options.")
-
-
-def update_product():
-    try:
-        index = int(
-            input("Please enter the index of the product you'd like to ammend: ")
-        )
-    except ValueError as VE:
-        print("You can only input an integer!")
-    except IndexError as IE:
-        print("Please ensure that the index is inn range of th options.")
-    else:
-        item_to_update = product_list[index]
-        keys = ["Product", "Price"]
-        for key in keys:
-            input_by_user = input(f"New {key}: ")
-            if input_by_user != "":
-                if key == "Product":
-                    item_to_update["Product"] = input_by_user
-                elif key == "Price":
-                    item_to_update["Price"] = float(input_by_user)
-                else:
-                    print("Please try again!")
-                    continue
-            else:
-                menu()
 
 
 def enumerate_order():
@@ -233,27 +193,27 @@ def product_menu():
             menu()
 
         elif product_option == 1:
-            enumerate_product()
+            enumerate_product(product_list)
             time.sleep(3)
             product_menu()
 
         elif product_option == 2:
-            add_product()
-            enumerate_product()
+            add_product(product_list)
+            enumerate_product(product_list)
             time.sleep(3)
             product_menu()
 
         elif product_option == 3:
-            enumerate_product()
-            delete_product()
-            enumerate_product()
+            enumerate_product(product_list)
+            delete_product(product_list)
+            enumerate_product(product_list)
             time.sleep(3)
             product_menu()
 
         elif product_option == 4:
-            enumerate_product()
-            update_product()
-            enumerate_product()
+            enumerate_product(product_list)
+            update_product(product_list)
+            enumerate_product(product_list)
             time.sleep(3)
             product_menu()
 
