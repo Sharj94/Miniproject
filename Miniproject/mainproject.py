@@ -2,8 +2,9 @@ import time
 import csv
 import sys
 
-from product import enumerate_product,add_product,update_product,delete_product
-from orders import enumerate_order,add_order,update_order,update_order_status,delete_order
+from products_funct import enumerate_product,add_product,update_product,delete_product
+from orders_funct import enumerate_order,add_order,update_order,update_order_status,delete_order
+from couriers_funct import enumerate_courier,add_courier,delete_courier,update_courier
 
 
 def load_list_file(file_name):
@@ -53,50 +54,6 @@ def save_to_file(file_name, list):
 product_list = load_list_file("products.csv")
 order_list = load_list_file("orders.csv")
 courier_list = load_list_file("couriers.csv")
-
-
-def enumerate_courier():
-    for i, x in enumerate(courier_list):
-        print(f"Index: {i}, {x}")
-
-
-def add_courier():
-    Courier = input("New courier name: ")
-    Number = int(input("New courier number: "))
-    new_courier = {"Courier": Courier, "Number": Number}
-    courier_list.append(new_courier)
-
-
-def delete_courier():
-    try:
-        del courier_list[
-            int(input("Please enter the number of the courier you'd like to delete: "))
-        ]
-    except ValueError as VE:
-        print("You can only input an integer!")
-    except IndexError as IE:
-        print("Please ensure that the index is inn range of th options.")
-
-
-def update_courier():
-    try:
-        index = int(
-            input("Please enter the index of the courier you'd like to ammend: ")
-        )
-    except ValueError as VE:
-        print("You can only input an integer!")
-    except IndexError as IE:
-        print("Please ensure that the index is inn range of th options.")
-    else:
-        courier_to_update = product_list[index]
-        keys = ["Courier", "Number"]
-        for key in keys:
-            input_by_user = input(f"new {key}: ")
-            if input_by_user != "":
-                if key == "Courier":
-                    courier_to_update["Courier"] = input_by_user
-                elif key == "Number":
-                    courier_to_update["Number"] = int(input_by_user)
 
 
 def product_menu():
@@ -308,6 +265,5 @@ def menu():
             Please choose one of the following:"""
             )
             menu()
-
 
 menu()

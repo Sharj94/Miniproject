@@ -2,7 +2,13 @@ from unittest import mock
 
 import pytest
 
-from product import enumerate_product, add_product, update_product, delete_product
+from products_funct import enumerate_product, add_product, update_product, delete_product
+
+
+
+
+#################### Products #######################
+
 
 
 @pytest.fixture
@@ -66,3 +72,13 @@ def test_prod_change(product_list_with_item):
         mock_input.side_effect = mock_args
         update_product(mock_product_list)
         assert mock_product_list == expected_outcome
+
+#################### Orders #######################
+
+def test_prod_enumerate(product_list_with_item):
+
+    mock_order_list = [{"Product": "Pear", "Price": "300.0"}]
+
+    with mock.patch("builtins.print") as mock_print:
+        enumerate_product(mock_order_list)
+    mock_print.assert_called_with("Number: 0, {'Product': 'Pear', 'Price': '300.0'}")
