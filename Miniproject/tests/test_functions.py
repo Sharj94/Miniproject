@@ -3,7 +3,7 @@ from unittest import mock
 import pytest
 
 from products_funct import enumerate_product, add_product, update_product, delete_product
-
+from orders_funct import enumerate_order,add_order,delete_order,update_order,update_order_status
 
 
 
@@ -75,10 +75,19 @@ def test_prod_change(product_list_with_item):
 
 #################### Orders #######################
 
-def test_prod_enumerate(product_list_with_item):
+@pytest.fixture
+def order_list_without_orders():
+    return []
 
-    mock_order_list = [{"Product": "Pear", "Price": "300.0"}]
+
+@pytest.fixture
+def order_list_with_order():
+    return [{'customer_name': 'Tobias Kempe', 'customer_address': '13 Bond Stree, SW1X3CE, London', 'customer_phone_number': '7398485932', 'courier': '-', 'Status': 'Preparing...'}]
+
+def test_order_enumerate(product_list_with_item):
+
+    mock_order_list = [{'customer_name': 'Tobias Kempe', 'customer_address': '13 Bond Stree, SW1X3CE, London', 'customer_phone_number': '7398485932', 'courier': '-', 'Status': 'Preparing...'}]
 
     with mock.patch("builtins.print") as mock_print:
-        enumerate_product(mock_order_list)
-    mock_print.assert_called_with("Number: 0, {'Product': 'Pear', 'Price': '300.0'}")
+        enumerate_order(mock_order_list)
+    mock_print.assert_called_with("Order number: 0, {'customer_name': 'Tobias Kempe', 'customer_address': '13 Bond Stree, SW1X3CE, London', 'customer_phone_number': '7398485932', 'courier': '-', 'Status': 'Preparing...'}")
