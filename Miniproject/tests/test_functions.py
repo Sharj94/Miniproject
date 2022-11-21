@@ -310,7 +310,7 @@ def test_delete_courier():
     with mock.patch("builtins.input") as mock_input:
         mock_input.side_effect = mock_args
         assert courier_list == [{"Courier": "Jimbob", "Number": 2670827394}]
-        delete_product(courier_list)
+        delete_courier(courier_list)
         assert courier_list == expected_outcome
 
 
