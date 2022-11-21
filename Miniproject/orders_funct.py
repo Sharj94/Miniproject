@@ -54,7 +54,7 @@ def update_order(order_list):
             elif key == "customer_address":
                 item_to_update["customer_address"] = input_by_user
             elif key == "customer_phone_number":
-                item_to_update["customer_phone_number"] = input_by_user
+                item_to_update["customer_phone_number"] = int(input_by_user)
             elif key == "courier":
                 item_to_update["courier"] = input_by_user
 
