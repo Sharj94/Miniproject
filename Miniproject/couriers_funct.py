@@ -5,9 +5,13 @@ def enumerate_courier(courier_list):
 
 def add_courier(courier_list):
     Courier = input("New courier name: ")
-    Number = int(input("New courier number: "))
-    new_courier = {"Courier": Courier, "Number": Number}
-    courier_list.append(new_courier)
+    try:
+        Number = int(input("New courier number: "))
+    except ValueError as VE:
+        print("You can only enter integers!")
+    else:
+        new_courier = {"Courier": Courier, "Number": Number}
+        courier_list.append(new_courier)
 
 
 def delete_courier(courier_list):
@@ -18,7 +22,7 @@ def delete_courier(courier_list):
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
-        print("Please ensure that the index is inn range of th options.")
+        print("Please ensure that the index is in range of the options.")
 
 
 def update_courier(courier_list):
@@ -29,7 +33,7 @@ def update_courier(courier_list):
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
-        print("Please ensure that the index is inn range of th options.")
+        print("Please ensure that the index is in range of the options.")
     else:
         courier_to_update = courier_list[index]
         keys = ["Courier", "Number"]

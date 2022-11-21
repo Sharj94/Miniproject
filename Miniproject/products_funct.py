@@ -5,9 +5,13 @@ def enumerate_product(product_list):
 
 def add_product(product_list):
     product = input("New product name: ")
-    price = float(input("New product price: "))
-    new_product = {"Product": product, "Price": price}
-    product_list.append(new_product)
+    try:
+        price = float(input("New product price: "))
+    except ValueError as VE:
+        print("You can only input an integer!")
+    else:
+        new_product = {"Product": product, "Price": price}
+        product_list.append(new_product)
 
 
 def delete_product(product_list):
@@ -18,7 +22,7 @@ def delete_product(product_list):
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
-        print("Please ensure that the index is in range of th options.")
+        print("Please ensure that the index is in range of the options.")
 
 
 def update_product(product_list):
@@ -29,7 +33,7 @@ def update_product(product_list):
     except ValueError as VE:
         print("You can only input an integer!")
     except IndexError as IE:
-        print("Please ensure that the index is inn range of th options.")
+        print("Please ensure that the index is in range of the options.")
     else:
         item_to_update = product_list[index]
         keys = ["Product", "Price"]
