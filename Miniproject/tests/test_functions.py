@@ -15,6 +15,12 @@ from orders_funct import (
     update_order,
     update_order_status,
 )
+from couriers_funct import (
+    enumerate_courier,
+    add_courier,
+    update_courier,
+    delete_courier,
+)
 
 
 #################### Products #######################
@@ -65,7 +71,7 @@ def test_prod_delete(product_list_with_item):
         assert product_list_with_item == expected_outcome
 
 
-def test_prod_change(product_list_with_item):
+def test_prod_change():
     mock_index = 0
     mock_new_product = "Potato"
     mock_new_price = "1.15"
@@ -181,7 +187,7 @@ def test_order_deletion():
                 "customer_name": "Tobias Kempe",
             }
         ]
-        delete_product(mock_list)
+        delete_order(mock_list)
         assert mock_list == expected_outcome
 
 
@@ -189,14 +195,14 @@ def test_order_change():
     mock_index = 0
     mock_n_customer = "J Watson"
     mock_n_address = "221b Baker Street"
-    mock_n_phone = "20875358"
+    mock_n_phone = 20875358
     mock_n_courier = "Moriarty"
 
     mock_list = [
         {
             "customer_name": "Tobias Kempe",
             "customer_address": "13 Bond Stree, SW1X3CE, London",
-            "customer_phone_number": "7398485932",
+            "customer_phone_number": 7398485932,
             "courier": "Bob the builder",
             "Status": "Preparing...",
         }
@@ -206,7 +212,7 @@ def test_order_change():
         {
             "customer_name": "J Watson",
             "customer_address": "221b Baker Street",
-            "customer_phone_number": "20875358",
+            "customer_phone_number": 20875358,
             "courier": "Moriarty",
             "Status": "Preparing...",
         }
@@ -235,7 +241,7 @@ def test_order_status_update():
         {
             "customer_name": "Tobias Kempe",
             "customer_address": "13 Bond Stree, SW1X3CE, London",
-            "customer_phone_number": "7398485932",
+            "customer_phone_number": 7398485932,
             "courier": "-",
             "Status": "Preparing...",
         }
@@ -245,7 +251,7 @@ def test_order_status_update():
         {
             "customer_name": "Tobias Kempe",
             "customer_address": "13 Bond Stree, SW1X3CE, London",
-            "customer_phone_number": "7398485932",
+            "customer_phone_number": 7398485932,
             "courier": "-",
             "Status": "Delivered",
         }
@@ -257,7 +263,7 @@ def test_order_status_update():
             {
                 "customer_name": "Tobias Kempe",
                 "customer_address": "13 Bond Stree, SW1X3CE, London",
-                "customer_phone_number": "7398485932",
+                "customer_phone_number": 7398485932,
                 "courier": "-",
                 "Status": "Preparing...",
             }
@@ -267,3 +273,58 @@ def test_order_status_update():
 
 
 ######################## Couriers ############################
+
+
+def test_enum_courier():
+
+    mock_courier_list = [{"Courier": "Bob", "Number": 8736495723}]
+
+    with mock.patch("builtins.print") as mock_print:
+        enumerate_courier(mock_courier_list)
+    mock_print.assert_called_with("Index: 0, {'Courier': 'Bob', 'Number': 8736495723}")
+
+
+def test_add_courier():
+    mock_courier = "Jimbob"
+    mock_number = 2670827394
+
+    empty_list = []
+
+    expected_outcome = [{"Courier": "Jimbob", "Number": 2670827394}]
+
+    mock_args = [mock_courier, mock_number]
+    with mock.patch("builtins.input") as mock_input:
+        mock_input.side_effect = mock_args
+        assert empty_list == []
+        add_courier(empty_list)
+        assert empty_list == expected_outcome
+
+
+def test_delete_courier():
+    mock_input = 0
+    expected_outcome = []
+
+    courier_list = [{"Courier": "Jimbob", "Number": 2670827394}]
+
+    mock_args = [mock_input]
+    with mock.patch("builtins.input") as mock_input:
+        mock_input.side_effect = mock_args
+        assert courier_list == [{"Courier": "Jimbob", "Number": 2670827394}]
+        delete_product(courier_list)
+        assert courier_list == expected_outcome
+
+
+def test_change_courier():
+    mock_index = 0
+    mock_new_courier = "Eleven"
+    mock_new_number = 11
+
+    expected_outcome = [{"Courier": "Eleven", "Number": 11}]
+
+    mock_courier_list = [{"Courier": "Jimbob", "Number": 2670827394}]
+
+    mock_args = [mock_index, mock_new_courier, mock_new_number]
+    with mock.patch("builtins.input") as mock_input:
+        mock_input.side_effect = mock_args
+        update_courier(mock_courier_list)
+        assert mock_courier_list == expected_outcome
