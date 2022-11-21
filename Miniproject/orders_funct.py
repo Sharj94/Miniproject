@@ -1,5 +1,3 @@
-
-
 def enumerate_order(order_list):
     for i, x in enumerate(order_list):
         print(f"Order number: {i}, {x}")
@@ -46,20 +44,19 @@ def update_order(order_list):
             "customer_address",
             "customer_phone_number",
             "courier",
-            "Status",
         ]
         for key in keys:
             input_by_user = input(f"new {key}: ")
-            if input_by_user != "":
-                if key == "customer_name":
-                    item_to_update["customer_name"] = input_by_user
-                elif key == "customer_address":
-                    item_to_update["customer_address"] = input_by_user
-                elif key == "customer_phonne_number":
-                    item_to_update["customer_phone_number"] = input_by_user
-#                elif key == "courier":
-#                    enumerate_courier
-#                    item_to_update["courier"] = input_by_user
+            if input_by_user == "":
+                return
+            if key == "customer_name":
+                item_to_update["customer_name"] = input_by_user
+            elif key == "customer_address":
+                item_to_update["customer_address"] = input_by_user
+            elif key == "customer_phone_number":
+                item_to_update["customer_phone_number"] = input_by_user
+            elif key == "courier":
+                item_to_update["courier"] = input_by_user
 
 
 def update_order_status(order_list):

@@ -1,5 +1,3 @@
-
-
 def enumerate_courier(courier_list):
     for i, x in enumerate(courier_list):
         print(f"Index: {i}, {x}")
@@ -37,9 +35,9 @@ def update_courier(courier_list):
         keys = ["Courier", "Number"]
         for key in keys:
             input_by_user = input(f"new {key}: ")
-            if input_by_user != "":
-                if key == "Courier":
-                    courier_to_update["Courier"] = input_by_user
-                elif key == "Number":
-                    courier_to_update["Number"] = int(input_by_user)
-
+            if input_by_user == "":
+                return
+            if key == "Courier":
+                courier_to_update["Courier"] = input_by_user
+            elif key == "Number":
+                courier_to_update["Number"] = int(input_by_user)

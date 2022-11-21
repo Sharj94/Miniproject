@@ -2,9 +2,25 @@ import time
 import csv
 import sys
 
-from products_funct import enumerate_product,add_product,update_product,delete_product
-from orders_funct import enumerate_order,add_order,update_order,update_order_status,delete_order
-from couriers_funct import enumerate_courier,add_courier,delete_courier,update_courier
+from products_funct import (
+    enumerate_product,
+    add_product,
+    update_product,
+    delete_product,
+)
+from orders_funct import (
+    enumerate_order,
+    add_order,
+    update_order,
+    update_order_status,
+    delete_order,
+)
+from couriers_funct import (
+    enumerate_courier,
+    add_courier,
+    delete_courier,
+    update_courier,
+)
 
 
 def load_list_file(file_name):
@@ -147,6 +163,7 @@ def order_menu():
 
         elif order_option == 3:
             enumerate_order(order_list)
+            enumerate_courier(courier_list)
             update_order(order_list)
             enumerate_order(order_list)
             time.sleep(3)
@@ -266,5 +283,6 @@ def menu():
             Please choose one of the following:"""
             )
             menu()
+
 
 menu()
