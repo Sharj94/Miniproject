@@ -1,5 +1,4 @@
-import couriers_funct
-import mainproject
+
 
 def enumerate_order(order_list):
     for i, x in enumerate(order_list):
@@ -7,11 +6,10 @@ def enumerate_order(order_list):
 
 
 def add_order(order_list):
+    courier = input("Please enter the name of a courier for the delivery: ")
     c_name = input("Please enter your name: ")
     c_address = input("Please enter your address: ")
     c_phone_number = int(input("Please enter your phone number: "))
-    enumerate_courier(courier_list)
-    courier = input("Please enter the name of a courier for the delivery: ")
     new_order = {
         "customer_name": c_name,
         "customer_address": c_address,
@@ -59,9 +57,9 @@ def update_order(order_list):
                     item_to_update["customer_address"] = input_by_user
                 elif key == "customer_phonne_number":
                     item_to_update["customer_phone_number"] = input_by_user
-                elif key == "courier":
-                    enumerate_courier
-                    item_to_update["courier"] = input_by_user
+#                elif key == "courier":
+#                    enumerate_courier
+#                    item_to_update["courier"] = input_by_user
 
 
 def update_order_status(order_list):

@@ -135,32 +135,33 @@ def order_menu():
             menu()
 
         elif order_option == 1:
-            enumerate_order()
+            enumerate_order(order_list)
             time.sleep(3)
             order_menu()
 
         elif order_option == 2:
-            add_order()
+            enumerate_courier(courier_list)
+            add_order(order_list)
             time.sleep(3)
             order_menu()
 
         elif order_option == 3:
-            enumerate_order()
-            update_order()
-            enumerate_order()
+            enumerate_order(order_list)
+            update_order(order_list)
+            enumerate_order(order_list)
             time.sleep(3)
             order_menu()
 
         elif order_option == 4:
-            enumerate_order()
-            delete_order()
-            enumerate_order()
+            enumerate_order(order_list)
+            delete_order(order_list)
+            enumerate_order(order_list)
             time.sleep(3)
             order_menu()
 
         elif order_option == 5:
-            enumerate_order()
-            update_order_status()
+            enumerate_order(order_list)
+            update_order_status(order_list)
             time.sleep(3)
             order_menu()
 
@@ -195,25 +196,25 @@ def courier_menu():
             menu()
 
         if courier_option == 1:
-            enumerate_courier()
+            enumerate_courier(courier_list)
             time.sleep(3)
             courier_menu()
 
         if courier_option == 2:
-            add_courier()
+            add_courier(courier_list)
             time.sleep(3)
             courier_menu()
 
         if courier_option == 3:
-            enumerate_courier()
-            delete_courier()
+            enumerate_courier(courier_list)
+            delete_courier(courier_list)
             time.sleep(3)
             courier_menu()
 
         if courier_option == 4:
-            enumerate_courier()
-            update_courier()
-            enumerate_courier()
+            enumerate_courier(courier_list)
+            update_courier(courier_list)
+            enumerate_courier(courier_list)
             time.sleep(3)
             courier_menu()
 

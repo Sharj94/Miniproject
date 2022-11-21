@@ -1,5 +1,4 @@
-import orders_funct
-import mainproject
+
 
 def enumerate_courier(courier_list):
     for i, x in enumerate(courier_list):
