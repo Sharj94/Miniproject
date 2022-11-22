@@ -1,9 +1,9 @@
 ## Miniproject
 
-#Project Background
+# Project Background
 The client required an app that they could utilise to complete all the business requirements behind the scenes of a pop-up coffee shop. We were drip fed the evolving requirements for the CLI application in python by the client over the course of 6 weeks which were implemented as required. 
 
-#Client requirements
+# Client requirements
   
   Week 1:
   The initial requirements that were given by the client included creating a product, adding, deleting, and updating the product in a list. Additionally, the requirements inncluded the ability to view all the products that belonged to the list.
