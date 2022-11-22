@@ -37,3 +37,5 @@ One factor that became essential once introduced in the requirements and that wo
 Likewise, I would have liked to work more on creating pure functions and combining thses with OOP. This would allow me to further strengthen my understadning of these two types of programming approaches and would also reflect in a more robust code. Likewise, I would like to have implemented databases and utilised SQL to do so. I would like to have also used various other tools such as Docker to upload my code and allow others to use as well.
 
 ## What did you most enjoy implementing?
+
+One aspect that was particularly enjoyable was adding layers of encapsulation to the programme. Being able to troubleshoot the app for bugs and coming to a solution for those problems collaboratively also made it an enjoyable experience. Learning how to code from no background in the field to being able to write a programme that follows the set specification and seeing it run was quite enjoyable.
