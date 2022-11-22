@@ -176,11 +176,10 @@ def courier_menu():
     while True:
 
         try:
-            courier_option = int(input('Please slect your option: '))
+            courier_option = int(input('Please select your option: '))
         except ValueError as VE:
             print('You can only input integers!')
         else:
-            courier_option = int(input('Please slect your option: '))
 
             if courier_option == 0:
                 menu()
