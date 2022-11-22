@@ -2,20 +2,20 @@ from unittest import mock
 
 import pytest
 
-from products_funct import (
+from functions.products_funct import (
     enumerate_product,
     add_product,
     update_product,
     delete_product,
 )
-from orders_funct import (
+from functions.orders_funct import (
     enumerate_order,
     add_order,
     delete_order,
     update_order,
     update_order_status,
 )
-from couriers_funct import (
+from functions.couriers_funct import (
     enumerate_courier,
     add_courier,
     update_courier,

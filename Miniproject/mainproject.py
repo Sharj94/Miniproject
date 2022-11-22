@@ -2,20 +2,20 @@ import time
 import csv
 import sys
 
-from products_funct import (
+from functions.products_funct import (
     enumerate_product,
     add_product,
     update_product,
     delete_product,
 )
-from orders_funct import (
+from functions.orders_funct import (
     enumerate_order,
     add_order,
     update_order,
     update_order_status,
     delete_order,
 )
-from couriers_funct import (
+from functions.couriers_funct import (
     enumerate_courier,
     add_courier,
     delete_courier,
@@ -33,7 +33,7 @@ def load_list_file(file_name):
 
 
 def save_to_file(file_name, list):
-    if file_name == "products.csv":
+    if file_name == "data/products.csv":
         headers = ["Product", "Price"]
         with open(file_name, "w", newline="") as f:
             w = csv.DictWriter(f, headers, quoting=csv.QUOTE_MINIMAL)
@@ -42,7 +42,7 @@ def save_to_file(file_name, list):
                 w.writerow(x)
         print("Products list save complete!")
 
-    elif file_name == "orders.csv":
+    elif file_name == "data/orders.csv":
         headers = [
             "customer_name",
             "customer_address",
@@ -58,7 +58,7 @@ def save_to_file(file_name, list):
                 w.writerow(x)
         print("Orders list save complete!")
 
-    elif file_name == "couriers.csv":
+    elif file_name == "data/couriers.csv":
         headers = ["Courier", "Number"]
         with open(file_name, "w", newline="") as f:
             w = csv.DictWriter(f, headers, quoting=csv.QUOTE_MINIMAL)
@@ -68,9 +68,9 @@ def save_to_file(file_name, list):
         print("Couriers list save complete!")
 
 
-product_list = load_list_file("products.csv")
-order_list = load_list_file("orders.csv")
-courier_list = load_list_file("couriers.csv")
+product_list = load_list_file("data/products.csv")
+order_list = load_list_file("data/orders.csv")
+courier_list = load_list_file("data/couriers.csv")
 
 
 def product_menu():
