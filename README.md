@@ -17,7 +17,7 @@ Here are the requirements set out by the client.
   During this week the client specified that they needed to persist the data for orders and products in .txt form. They needed to be able to update the status of orders. They needed to be able to load the data when the application was started and saved at the closing of it. 
   
 ###  Week 4
-  The client now needed the data to be persisted in .csv form for all three components of the app; couriers, orders and products. The client also needed for all of the data to be in the form of a dictionary and be persisted as a list of dictionaries. 
+  The client now needed the data to be persisted in .csv form for all three components of the app; couriers, orders and products. The client also needed for all of the data to be in the form of a dictionary and be persisted as a list of dictionaries. Furthermore, the client set out their needs of unit testing to be implemented in the programme.
   
 ###  Week 5 and 6 (tbc):
   The client now requires the application to utilise databases and sort orders by couriers and items.
@@ -28,11 +28,11 @@ In order to ensure that the requirements of the projects were fully met, I check
 
 ## How did you guarantee the project's requirements?
 
-The projects requirements were guranteed through the use unit testing throughout the core functionality of the application. This was done to ensure that the client receives 
+Flexibility was crucial in order to gurantee the fulfilment of the set requirements. As the needs and requirements of the client changed, the code had to adjust to those new requirements as well. For this to happen, refactoring the code, rewriting functions and exploring new ways of fulfilling the needs was essential and something that was followed throughout. The projects requirements were then guranteed through the use of unit testing throughout the core functionality of the application. This was done to ensure that the client received what they asked for and could also familiarise themselves with their new application. This would also help in future troubleshooting of the application should any problems arise.
 
 ## If you had more time, what is one thing you would improve upon?
 
-One factor that would have reduced the technical debt build up is test driven development (TDD). Towards the end of the project it became evident that retrospectively writing tests for code is very time consuming and requires a lot of added time and effort. This is something that in the long term can lead to difficulties in refactoring the code and in simplifying it for new members of a team, that aren't familiar with the coding thus far.
+One factor that became essential once introduced in the requirements and that would have reduced the built up technical debt was test driven development (TDD). Towards the end of the project it became evident that retrospectively writing tests for code is very time consuming and requires a lot of added time and effort. This is something that in the long term can lead to difficulties in refactoring the code and in simplifying it for new members of a team, that aren't familiar with the project and code thus far.
 
 Likewise, I would have liked to work more on creating pure functions and combining thses with OOP. This would allow me to further strengthen my understadning of these two types of programming approaches and would also reflect in a more robust code. Likewise, I would like to have implemented databases and utilised SQL to do so. I would like to have also used various other tools such as Docker to upload my code and allow others to use as well.
 
