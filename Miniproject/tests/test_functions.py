@@ -103,6 +103,7 @@ def order_list_with_order():
             "customer_address": "13 Bond Stree, SW1X3CE, London",
             "customer_phone_number": 7398485932,
             "courier": "-",
+            "products": "1,2",
             "Status": "Preparing...",
         }
     ]
@@ -116,6 +117,7 @@ def test_order_enumerate():
             "customer_address": "13 Bond Stree, SW1X3CE, London",
             "customer_phone_number": 7398485932,
             "courier": "-",
+            "products": "1,2",
             "Status": "Preparing...",
         }
     ]
@@ -123,7 +125,7 @@ def test_order_enumerate():
     with mock.patch("builtins.print") as mock_print:
         enumerate_order(mock_order_list)
     mock_print.assert_called_with(
-        "Order number: 0, {'customer_name': 'Tobias Kempe', 'customer_address': '13 Bond Stree, SW1X3CE, London', 'customer_phone_number': 7398485932, 'courier': '-', 'Status': 'Preparing...'}"
+        "Order number: 0, {'customer_name': 'Tobias Kempe', 'customer_address': '13 Bond Stree, SW1X3CE, London', 'customer_phone_number': 7398485932, 'courier': '-', 'products': '1,2', 'Status': 'Preparing...'}"
     )
 
 
@@ -133,6 +135,7 @@ def test_order_addition():
     mock_customer_a = "3 John Street"
     mock_customer_phone = 123456789
     mock_courier = "Jane Doe"
+    mock_products = "1,2"
     mock_status = "Preparing..."
 
     empty_list = []
@@ -143,6 +146,7 @@ def test_order_addition():
             "customer_address": "3 John Street",
             "customer_phone_number": 123456789,
             "courier": "Jane Doe",
+            "products": "1,2",
             "Status": "Preparing...",
         }
     ]
@@ -151,6 +155,7 @@ def test_order_addition():
         mock_courier,
         mock_customer_n,
         mock_customer_a,
+        mock_products,
         mock_customer_phone,
         mock_status,
     ]
@@ -168,6 +173,7 @@ def test_order_deletion():
     mock_list = [
         {
             "Status": "Preparing...",
+            "products": "1,2",
             "courier": "-",
             "customer_phone_number": "7398485932",
             "customer_address": "13 Bond Stree, SW1X3CE, London",
@@ -181,6 +187,7 @@ def test_order_deletion():
         assert mock_list == [
             {
                 "Status": "Preparing...",
+                "products": "1,2",
                 "courier": "-",
                 "customer_phone_number": "7398485932",
                 "customer_address": "13 Bond Stree, SW1X3CE, London",
@@ -196,6 +203,7 @@ def test_order_change():
     mock_n_customer = "J Watson"
     mock_n_address = "221b Baker Street"
     mock_n_phone = 20875358
+    mock_products = "1,2"
     mock_n_courier = "Moriarty"
 
     mock_list = [
@@ -204,6 +212,7 @@ def test_order_change():
             "customer_address": "13 Bond Stree, SW1X3CE, London",
             "customer_phone_number": 7398485932,
             "courier": "Bob the builder",
+            "products": "1,2",
             "Status": "Preparing...",
         }
     ]
@@ -214,6 +223,7 @@ def test_order_change():
             "customer_address": "221b Baker Street",
             "customer_phone_number": 20875358,
             "courier": "Moriarty",
+            "products": "1,2",
             "Status": "Preparing...",
         }
     ]
@@ -223,6 +233,7 @@ def test_order_change():
         mock_n_customer,
         mock_n_address,
         mock_n_phone,
+        mock_products,
         mock_n_courier,
     ]
     with mock.patch("builtins.input") as mock_input:

@@ -7,6 +7,7 @@ def add_order(order_list):
     courier = input("Please enter the name of a courier for the delivery: ")
     c_name = input("Please enter your name: ")
     c_address = input("Please enter your address: ")
+    products = input("Please enter the index of the products you'd like to add: ")
     try:
         c_phone_number = int(input("Please enter your phone number: "))
     except ValueError as VE:
@@ -17,6 +18,7 @@ def add_order(order_list):
             "customer_address": c_address,
             "customer_phone_number": c_phone_number,
             "courier": courier,
+            "products": products,
             "Status": "Preparing...",
         }
         order_list.append(new_order)
@@ -47,6 +49,7 @@ def update_order(order_list):
             "customer_name",
             "customer_address",
             "customer_phone_number",
+            "products",
             "courier",
         ]
         for key in keys:
@@ -59,6 +62,8 @@ def update_order(order_list):
                 item_to_update["customer_address"] = input_by_user
             elif key == "customer_phone_number":
                 item_to_update["customer_phone_number"] = int(input_by_user)
+            elif key == "products":
+                item_to_update["products"] = input_by_user              
             elif key == "courier":
                 item_to_update["courier"] = input_by_user
 

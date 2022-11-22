@@ -48,6 +48,7 @@ def save_to_file(file_name, list):
             "customer_address",
             "customer_phone_number",
             "courier",
+            "products",
             "Status",
         ]
         with open(file_name, "w", newline="") as f:
@@ -157,6 +158,7 @@ def order_menu():
 
         elif order_option == 2:
             enumerate_courier(courier_list)
+            enumerate_product(product_list)
             add_order(order_list)
             time.sleep(3)
             order_menu()
