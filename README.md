@@ -17,13 +17,16 @@ Client requirements
   Week 4:
   The client now needed the data to be persisted in .csv form for all three components of the app; couriers, orders and products. The client also needed for all of the data to be in the form of a dictionary and be persisted as a list of dictionaries. 
   
+  Week 5 and 6 (tbc):
+  The client now requires the application to utilise databases and sort orders by couriers and items.
+  
 How did your design go about meeting the project's requirements?
 
 In order to ensure that the requirements of the cient are fully met, all of the updates were completed as 
 
 How did you guarantee the project's requirements?
 
-The projects requirements were guranteed through the use unit testing throughout 
+The projects requirements were guranteed through the use unit testing throughout the core functionality of the application. This was done to ensure that the client receives 
 
 If you had more time, what is one thing you would improve upon?
 
