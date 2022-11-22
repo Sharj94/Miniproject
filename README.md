@@ -5,7 +5,7 @@ The client required an app that they could utilise to complete all the business 
 
 ## Client requirements
   
-  Week 1:
+###  Week 1:
   The initial requirements that were given by the client included creating a product, adding, deleting, and updating the product in a list. Additionally, the requirements inncluded the ability to view all the products that belonged to the list.
   
   Week 2:
