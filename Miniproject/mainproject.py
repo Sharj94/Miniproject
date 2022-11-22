@@ -265,9 +265,9 @@ def menu():
         if main_option == 0:
             print("Saving files...")
             time.sleep(3)
-            save_to_file("products.csv", product_list)
-            save_to_file("orders.csv", order_list)
-            save_to_file("couriers.csv", courier_list)
+            save_to_file("data/products.csv", product_list)
+            save_to_file("data/orders.csv", order_list)
+            save_to_file("data/couriers.csv", courier_list)
             print("Miss you already!")
             sys.exit()
 
