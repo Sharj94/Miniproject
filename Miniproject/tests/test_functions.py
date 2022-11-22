@@ -101,7 +101,7 @@ def order_list_with_order():
         {
             "customer_name": "Tobias Kempe",
             "customer_address": "13 Bond Stree, SW1X3CE, London",
-            "customer_phone_number": "7398485932",
+            "customer_phone_number": 7398485932,
             "courier": "-",
             "Status": "Preparing...",
         }
@@ -114,7 +114,7 @@ def test_order_enumerate():
         {
             "customer_name": "Tobias Kempe",
             "customer_address": "13 Bond Stree, SW1X3CE, London",
-            "customer_phone_number": "7398485932",
+            "customer_phone_number": 7398485932,
             "courier": "-",
             "Status": "Preparing...",
         }
@@ -123,7 +123,7 @@ def test_order_enumerate():
     with mock.patch("builtins.print") as mock_print:
         enumerate_order(mock_order_list)
     mock_print.assert_called_with(
-        "Order number: 0, {'customer_name': 'Tobias Kempe', 'customer_address': '13 Bond Stree, SW1X3CE, London', 'customer_phone_number': '7398485932', 'courier': '-', 'Status': 'Preparing...'}"
+        "Order number: 0, {'customer_name': 'Tobias Kempe', 'customer_address': '13 Bond Stree, SW1X3CE, London', 'customer_phone_number': 7398485932, 'courier': '-', 'Status': 'Preparing...'}"
     )
 
 

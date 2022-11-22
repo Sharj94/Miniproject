@@ -179,6 +179,7 @@ def order_menu():
         elif order_option == 5:
             enumerate_order(order_list)
             update_order_status(order_list)
+            enumerate_order(order_list)
             time.sleep(3)
             order_menu()
 
