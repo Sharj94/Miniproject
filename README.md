@@ -45,6 +45,88 @@ The client now needed the data to be persisted in .csv form for all three compon
 
 In order to ensure that the requirements of the project were fully met, I matched the specified requirements with the client's needs while ensuring the functionality of the app. The importance of sticking to the given requirements became apparent in the first few weeks of the project, as the client's requirements did not allow for any additional functionality created by us. This allowed for less technical debt to be built up over the course of the project, which had to be refactored/rewritten. Through this project it became clear how important it is to stick exactly to the client's requirements as any other work may not be needed by the client and cause further delays.
 
+### Demo order update function
+
+```Python
+def update_order(order_list):
+    try:
+        index = int(input("Please enter the index of the order you'd like to ammend: "))
+    except ValueError as VE:
+        print("You can only input an integer!")
+    except IndexError as IE:
+        print("Please ensure that the index is in range of the options.")
+    else:
+        item_to_update = order_list[index]
+        keys = [
+            "customer_name",
+            "customer_address",
+            "customer_phone_number",
+            "products",
+            "courier",
+        ]
+        for key in keys:
+            input_by_user = input(f"new {key}: ")
+            if input_by_user == "":
+                return
+            if key == "customer_name":
+                item_to_update["customer_name"] = input_by_user
+            elif key == "customer_address":
+                item_to_update["customer_address"] = input_by_user
+            elif key == "customer_phone_number":
+                item_to_update["customer_phone_number"] = int(input_by_user)
+            elif key == "products":
+                item_to_update["products"] = input_by_user              
+            elif key == "courier":
+                item_to_update["courier"] = input_by_user
+```
+
+### Demo - test of a function
+
+```Python
+def test_order_change():
+    mock_index = 0
+    mock_n_customer = "J Watson"
+    mock_n_address = "221b Baker Street"
+    mock_n_phone = 20875358
+    mock_products = "1,2"
+    mock_n_courier = "Moriarty"
+
+    mock_list = [
+        {
+            "customer_name": "Tobias Kempe",
+            "customer_address": "13 Bond Stree, SW1X3CE, London",
+            "customer_phone_number": 7398485932,
+            "courier": "Bob the builder",
+            "products": "1,2",
+            "Status": "Preparing...",
+        }
+    ]
+
+    expected_outcome = [
+        {
+            "customer_name": "J Watson",
+            "customer_address": "221b Baker Street",
+            "customer_phone_number": 20875358,
+            "courier": "Moriarty",
+            "products": "1,2",
+            "Status": "Preparing...",
+        }
+    ]
+
+    mock_args = [
+        mock_index,
+        mock_n_customer,
+        mock_n_address,
+        mock_n_phone,
+        mock_products,
+        mock_n_courier,
+    ]
+    with mock.patch("builtins.input") as mock_input:
+        mock_input.side_effect = mock_args
+        update_order(mock_list)
+        assert mock_list == expected_outcome
+```
+
 ## How did you guarantee the project's requirements?
 
 Flexibility was crucial to ensure that the specified requirements were met. As the client's needs and requirements changed, the code also had to be adapted to these new requirements. Refactoring the code, rewriting functions and looking for new ways to meet the requirements were essential for this and were pursued consistently. The requirements of the project were then ensured through the use of unit tests for the core functions of the application. This ensured that the clients got what they required and were able to familiarise themselves with their new application. This would also help with future troubleshooting of the application should any problems arise.
