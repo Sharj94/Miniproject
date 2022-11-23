@@ -1,5 +1,5 @@
 run:
-	python -B mainproject.py 
+	python3 -B mainproject.py 
 
 test:
-	python -B -m pytest tests/test_functions.py
+	python3 -B -m pytest -vv tests/test_functions.py
