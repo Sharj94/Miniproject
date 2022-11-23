@@ -24,6 +24,25 @@ The client now needed the data to be persisted in .csv form for all three compon
   
 ## How did your design go about meeting the project's requirements?
 
+```
+.
+├── Makefile
+├── data
+│   ├── couriers.csv
+│   ├── orders.csv
+│   └── products.csv
+├── functions
+│   ├── couriers_funct.py
+│   ├── file_functions.py
+│   ├── orders_funct.py
+│   └── products_funct.py
+├── mainproject.py
+├── requirements.txt
+└── tests
+    ├── test_file_persistence.py
+    └── test_functions.py
+```
+
 In order to ensure that the requirements of the project were fully met, I matched the specified requirements with the client's needs while ensuring the functionality of the app. The importance of sticking to the given requirements became apparent in the first few weeks of the project, as the client's requirements did not allow for any additional functionality created by us. This allowed for less technical debt to be built up over the course of the project, which had to be refactored/rewritten. Through this project it became clear how important it is to stick exactly to the client's requirements as any other work may not be needed by the client and cause further delays.
 
 ## How did you guarantee the project's requirements?
