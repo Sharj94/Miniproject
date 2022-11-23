@@ -10,14 +10,22 @@ Here are the requirements set out by the client.
 ###  Week 1
 The client's initial requirements included creating a product, adding, deleting and updating the product in a list. Additionally, the requirements included the ability to view all products in the list.
 
+In order to fulfill these requirements, a simple list of strings for the products was created. Likewise, a simple function was made to ask for user input to populate the list. There was no data persistence at this point which is why the edits made to the list were only temporary in the working memory. It was very straightforward to implement these requirements due to their simple logic. It, however, did not demonstarte a working business application of an application.
+
 ###  Week 2
 The client's requirements evolved and they wanted the app to be able to create, view and edit orders in addition to the products. Likewise, the product should be in the form of a string and, if many, a list of strings. The orders, on the other hand, needed to be a list of dictionaries.
+
+In order to achieve all the functions the requirements set out, the code had to be refactored. To create dictionaries for the orders, key-value pairs were made and utilised. The data was still not being persisted which allowed more flexibility with the functions.
   
 ###  Week 3
 This week, the client stated that they needed to persist the data for orders and products in the form of .txt files. They needed to be able to update the status of orders. They needed to be able to load the data when starting the application and save it when closing the application. 
-  
+
+Here we were instroduced to data persistence for orders and products to a .txt file. In order to achiveve this, new functions were added that allowed for the file to be opened, saved and closed with the new data. The code had to be refactored again to ensure functionality. 
+
 ###  Week 4
 The client now needed the data to be persisted in .csv form for all three components of the app: couriers, orders and products. The client also wanted all data to be in dictionary form and be persisted as a list of dictionaries. In addition, the client specified that unit tests should be implemented in the programme.
+
+In order to achieve the requirements for week 4, we were tasked with transferring our data from .txt files to .csv files for all three componenets (Products, orders and couriers). This meant that the code had to be rewritten to allow for the data to be loaded into lists before being manipulated by the user of the app. This threw a new challenge as up until this point the user was able to complete all the actions it needed inside the .txt file without having to transcribe it.
   
 ###  Week 5 and 6 (tbc):
   The client now requires the application to utilise databases and sort orders by couriers and items.
