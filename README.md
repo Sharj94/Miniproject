@@ -28,8 +28,10 @@ The client now needed the data to be persisted in .csv form for all three compon
 In order to achieve the requirements for week 4, we were tasked with transferring our data from .txt files to .csv files for all three componenets (Products, orders and couriers). This meant that the code had to be rewritten to allow for the data to be loaded into lists before being manipulated by the user of the app. This threw a new challenge as up until this point the user was able to complete all the actions it needed inside the .txt file without having to transcribe it.
   
 ###  Week 5 and 6 (tbc):
-  The client now requires the application to utilise databases and sort orders by couriers and items.
-  
+The client now requires the application to utilise databases and sort orders by couriers and items.
+
+These requirements are yet to be implemented in the near future. 
+
 ## How did your design go about meeting the project's requirements?
 
 ```
@@ -144,6 +146,8 @@ Flexibility was crucial to ensure that the specified requirements were met. As t
 One factor that became indispensable once added into the requirements, and which would have reduced the technical debt built up was continues testing. The ideal way of doing so would have been test-driven development (TDD). Towards the end of the project, it became clear that writing tests for the code after the fact was very time consuming and required a lot of extra time and effort. This is something that, in the long run, can lead to difficulties in refactoring the code and making it easier for new members of a team who are not previously familiar with the project and the code. Similarly, I would have liked to have more tests built into my code that focus on different paths and analyse different scenarios that the code might face after implementation.
 
 Similarly, I would have liked to work more on creating pure functions and combining them with OOP. This would allow me to further deepen my understanding of these two types of programming approaches, which would also translate into more robust code. Similarly, I would have liked to implement databases using SQL. I would also have liked to use various other tools such as Docker to upload my code and make it available to others as well.
+
+The use of repositories is something that would be quite useful in this project, if given more time, this would be something that would have been explored further. This would allow for more testing as well - through the use of mock repositories. However, it does come with its disadvantages, mainly adding another layer of complexity that would mean more difficulty for a reader in understadning the code.
 
 ## What did you most enjoy implementing?
 
