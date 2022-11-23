@@ -147,7 +147,7 @@ One factor that became indispensable once added into the requirements, and which
 
 Similarly, I would have liked to work more on creating pure functions and combining them with OOP. This would allow me to further deepen my understanding of these two types of programming approaches, which would also translate into more robust code. Similarly, I would have liked to implement databases using SQL. I would also have liked to use various other tools such as Docker to upload my code and make it available to others as well.
 
-The use of repositories is something that would be quite useful in this project, if given more time, this would be something that would have been explored further. This would allow for more testing as well - through the use of mock repositories. However, it does come with its disadvantages, mainly adding another layer of complexity that would mean more difficulty for a reader in understadning the code.
+The use of repositories is something that would be quite useful in this project, if given more time, this would be something that would have been explored further. This would allow for more testing as well - through the use of mock repositories. However, it does come with its disadvantages, mainly adding another layer of complexity that would mean more difficulty for a reader in understanding the code.
 
 ## What did you most enjoy implementing?
 
