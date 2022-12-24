@@ -2,22 +2,22 @@ import time
 import sys
 
 
-from functions.file_functions import load_list_file, save_to_file
+from src.file_functions import load_list_file, save_to_file
 
-from functions.products_funct import (
+from src.products_funct import (
     enumerate_product,
     add_product,
     update_product,
     delete_product,
 )
-from functions.orders_funct import (
+from src.orders_funct import (
     enumerate_order,
     add_order,
     update_order,
     update_order_status,
     delete_order,
 )
-from functions.couriers_funct import (
+from src.couriers_funct import (
     enumerate_courier,
     add_courier,
     delete_courier,
