@@ -37,17 +37,20 @@ These requirements are yet to be implemented in the near future.
 ```
 .
 ├── Makefile
+├── README.md
 ├── data
 │   ├── couriers.csv
 │   ├── orders.csv
 │   └── products.csv
-├── functions
+├── data.db
+├── database.py
+├── mainproject.py
+├── requirements.txt
+├── src
 │   ├── couriers_funct.py
 │   ├── file_functions.py
 │   ├── orders_funct.py
 │   └── products_funct.py
-├── mainproject.py
-├── requirements.txt
 └── tests
     ├── test_file_persistence.py
     └── test_functions.py
